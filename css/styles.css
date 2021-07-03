@@ -1,0 +1,92 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-family: 'Roboto', sans-serif;
+}
+
+.background {
+    background: url("../img/onder-ortel-Rxo-TxwpKm8-unsplash.jpg") center/cover no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+
+}
+
+.card-outer {
+    background-color: #bec2c0;
+    font-family: var(--font-family);
+}
+
+
+
+.card-inner {
+    height: 240px;
+    font-family: var(--font-family);
+}
+
+.card-image {
+    height: 227px;
+    width: 33em;
+    margin: 5px;
+}
+
+@media only screen and (max-width: 750px) {
+
+    .card-image {
+        height: 227px;
+        width: 7em;
+        margin: 5px;
+    }
+
+    .card-outer {
+        background-color: #bec2c0;
+        font-family: var(--font-family);
+        width: 47em;
+    }
+
+    /* .card-outer-form {
+        background-color: #bec2c0;
+        font-family: var(--font-family);
+
+    }
+
+    .search-form {
+
+        font-family: var(--font-family);
+        display: flex;
+    }
+
+    .search-form-textbox {
+        overflow: hidden;
+    } */
+
+}
+
+.card-outer-form {
+    background-color: #bec2c0;
+    font-family: var(--font-family);
+    width: 470px;
+    position: relative;
+}
+
+
+.search-form {
+    width: auto;
+    font-family: var(--font-family);
+    display: flex;
+    overflow: hidden;
+
+}
+
+.danger {
+
+    background-color: rgb(65, 61, 61);
+    color: white;
+    padding: 0.5rem;
+    letter-spacing: 2px;
+    font-family: var(--font-family);
+    text-transform: capitalize;
+}
