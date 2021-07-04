@@ -52,12 +52,16 @@
 
 .ingredient-list {
     overflow: scroll;
-    max-height: 100px;
+    height: 100px;
+    padding-left: 30px;
+    add
+    
 
 }
 
 .ingredients-list {
     overflow: scroll;
+    
 }
 
 ::-webkit-scrollbar {
@@ -88,6 +92,9 @@
     .ingredients-list {
 
         max-height: 40px;
+        
+        
+        
     }
 
     .view-recipe {
