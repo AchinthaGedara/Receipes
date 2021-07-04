@@ -18,9 +18,16 @@
 .card-outer {
     background-color: #bec2c0;
     font-family: var(--font-family);
+    box-shadow: 0 22px 22px 0 rgba(173, 7, 16, 0.2), 0 6px 20px 0 rgba(151, 5, 5, 0.19);
 }
 
-
+.close-button {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    color: rgb(100, 96, 96);
+    
+}
 
 .card-inner {
     height: 240px;
@@ -31,6 +38,34 @@
     height: 227px;
     width: 33em;
     margin: 5px;
+}
+
+.card-block h4 {
+
+    font-family: var(--font-family);
+    text-align: left;
+    font-weight: bold;
+    text-transform: capitalize;
+    overflow: scroll;
+    max-height: 30px;
+}
+
+.ingredient-list {
+    overflow: scroll;
+    height: 100px;
+    padding-left: 30px;
+    add
+    
+
+}
+
+.ingredients-list {
+    overflow: scroll;
+    
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 @media only screen and (max-width: 750px) {
@@ -47,21 +82,28 @@
         width: 47em;
     }
 
-    /* .card-outer-form {
-        background-color: #bec2c0;
-        font-family: var(--font-family);
 
+    .card-block h4 {
+
+        font-size: 15px;
+        font-weight: bold;
     }
 
-    .search-form {
+    .ingredients-list {
 
-        font-family: var(--font-family);
-        display: flex;
+        max-height: 40px;
+        
+        
+        
     }
 
-    .search-form-textbox {
-        overflow: hidden;
-    } */
+    .view-recipe {
+        color: violet;
+        max-height: 10px;
+        padding-bottom: 0;
+        position: absolute;
+        bottom: 15px;
+    }
 
 }
 
@@ -70,6 +112,7 @@
     font-family: var(--font-family);
     width: 470px;
     position: relative;
+    box-shadow: 0 12px 12px 0 rgba(173, 7, 16, 0.2), 0 6px 20px 0 rgba(151, 5, 5, 0.19);
 }
 
 
@@ -89,4 +132,13 @@
     letter-spacing: 2px;
     font-family: var(--font-family);
     text-transform: capitalize;
+}
+
+.view-recipe {
+    color: violet;
+    max-height: 12px;
+    padding-bottom: 0;
+    position: absolute;
+    bottom:10;
+
 }
