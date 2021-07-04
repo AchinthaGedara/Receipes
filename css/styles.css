@@ -26,6 +26,7 @@
     z-index: 1;
     right: 0;
     color: rgb(100, 96, 96);
+    
 }
 
 .card-inner {
@@ -39,17 +40,28 @@
     margin: 5px;
 }
 
-.card-block .card-title {
+.card-block h4 {
 
     font-family: var(--font-family);
-    text-align: center;
+    text-align: left;
     font-weight: bold;
-    color:red;
+    text-transform: capitalize;
+    overflow: scroll;
+    max-height: 30px;
+}
+
+.ingredient-list {
+    overflow: scroll;
+    max-height: 100px;
+
 }
 
 .ingredients-list {
-    overflow: hidden;
-    height: 120px;
+    overflow: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 @media only screen and (max-width: 750px) {
@@ -65,19 +77,26 @@
         font-family: var(--font-family);
         width: 47em;
     }
-   
 
-    .card-title {
-        
-        font-size: 12px;
+
+    .card-block h4 {
+
+        font-size: 15px;
         font-weight: bold;
-        
     }
 
-.ingredients-list {
-    overflow: hidden;
-   max-height: 80px;
-}
+    .ingredients-list {
+
+        max-height: 40px;
+    }
+
+    .view-recipe {
+        color: violet;
+        max-height: 10px;
+        padding-bottom: 0;
+        position: absolute;
+        bottom: 15px;
+    }
 
 }
 
@@ -106,4 +125,13 @@
     letter-spacing: 2px;
     font-family: var(--font-family);
     text-transform: capitalize;
+}
+
+.view-recipe {
+    color: violet;
+    max-height: 12px;
+    padding-bottom: 0;
+    position: absolute;
+    bottom:10;
+
 }

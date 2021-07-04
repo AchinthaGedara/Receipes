@@ -58,7 +58,7 @@ const getReceipes = async (keyWord) =>
         
             let html="";           
                     html+=
-            `<div class="row pt-5">
+            `<div class="row pt-3">
                 <div class="col-12 d-flex justify-content-end">
                     <div class="card  rounded-3 px-2 py-2 me-5 card-outer" style="max-width: 640px">
                         <div class="card rounded-3 bg-white shadow-lg  ps-0 card-inner"
@@ -71,20 +71,20 @@ const getReceipes = async (keyWord) =>
                                         class="img-fluid rounded-0 card-image" style="object-fit:cover">                                    
                                 </div>
                                 <div class="col-sm-8 col-8  pl-0 py-2">
-                                    <div class="card-block">    
-                                                                        
+                                    <div class="card-block">                                                                        
                                             <h4 >                                          
                                                 ${results.recipe.label}                                            
-                                            </h4>       
-                                                                     
+                                            </h4>                                                                            
                                          <hr>     
-                                                                     
-                                            <ul class="ingredients-list" >     
+                                            <div class="row ingredient-list">                                                                    
+                                            <ul class="ingredient-list" >     
                                                 ${list}
-                                            </ul>
-                                        <span class="small pl-0 ml-0">                                            
-                                            <a href="" class="text-muted"> View Receipe >> </a>
-                                        </span>                       
+                                            </div>
+                                            <hr>
+                                        <div class="view-recipe mb-0 pb-0">                                                                                
+                                            <a href="${results.recipe.url}" target="_blank" class="text-muted pe-4"> View Receipe >> </a>
+                                            <i class="fas fa-save fa-lg"></i>                                         
+                                        </div>      
                                         
                                     </div>
                                 </div>
