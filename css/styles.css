@@ -18,9 +18,15 @@
 .card-outer {
     background-color: #bec2c0;
     font-family: var(--font-family);
+    box-shadow: 0 22px 22px 0 rgba(173, 7, 16, 0.2), 0 6px 20px 0 rgba(151, 5, 5, 0.19);
 }
 
-
+.close-button {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    color: rgb(100, 96, 96);
+}
 
 .card-inner {
     height: 240px;
@@ -31,6 +37,19 @@
     height: 227px;
     width: 33em;
     margin: 5px;
+}
+
+.card-block .card-title {
+
+    font-family: var(--font-family);
+    text-align: center;
+    font-weight: bold;
+    color:red;
+}
+
+.ingredients-list {
+    overflow: hidden;
+    height: 120px;
 }
 
 @media only screen and (max-width: 750px) {
@@ -46,22 +65,19 @@
         font-family: var(--font-family);
         width: 47em;
     }
+   
 
-    /* .card-outer-form {
-        background-color: #bec2c0;
-        font-family: var(--font-family);
-
+    .card-title {
+        
+        font-size: 12px;
+        font-weight: bold;
+        
     }
 
-    .search-form {
-
-        font-family: var(--font-family);
-        display: flex;
-    }
-
-    .search-form-textbox {
-        overflow: hidden;
-    } */
+.ingredients-list {
+    overflow: hidden;
+   max-height: 80px;
+}
 
 }
 
@@ -70,6 +86,7 @@
     font-family: var(--font-family);
     width: 470px;
     position: relative;
+    box-shadow: 0 12px 12px 0 rgba(173, 7, 16, 0.2), 0 6px 20px 0 rgba(151, 5, 5, 0.19);
 }
 
 
