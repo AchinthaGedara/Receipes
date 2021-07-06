@@ -1,6 +1,6 @@
 # Receipes
 
-This website allows users to search recipes by a keywords.
+This website allows users to search recipes by keywords.
 .And also they can save it in the local storage for offline viewing.
 Operation.
 1) Enter key phrase and search.
