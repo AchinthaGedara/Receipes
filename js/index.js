@@ -34,8 +34,7 @@ const getReceipes = async (keyWord) => {
     let htmlArray = [], ID = 0;
     let URL = `https://api.edamam.com/api/recipes/v2?type=public&q=${ingredient}&app_id=a267c238&app_key=b1f0e8d21ea4382b259a18dcb53006ff`;
     let result = await fetch(URL);
-    jsonResult = await result.json();
-    console.log(jsonResult.hits);
+    jsonResult = await result.json();   
 
 
     //generate html

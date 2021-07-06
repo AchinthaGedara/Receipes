@@ -8,21 +8,26 @@ divTask.addEventListener("click", (event) => {
         event.target.parentElement.children[1].style.display = 'none';
         console.log(ID);
         save(cardID);
-
     }
+    //Delete a card
+    if (event.target.classList.contains("fa-window-close")) {
+        cardID = event.target.parentElement.parentElement.getAttribute("cardID");
+        deleteCard(cardID);
+    }
+
 });
 
 //Load data from local storage upon request
 document.querySelector(".fa-download").addEventListener("click", () => {
-    let [ID, recipeDetails] = load(), htmlArray = [];
+    let [ID, recipeDetails] = load();
     if (ID > 0) {
-        console.log(recipeDetails);
-        let html = generateHtmlLocalStorage(ID, recipeDetails);
-        document.querySelector(".recipes").innerHTML = html;
+        generateHtmlLocalStorage(recipeDetails);
 
     }
 
 });
+
+
 
 //Loading values
 const load = () => {
@@ -47,21 +52,45 @@ const save = (newCardID) => {
     ID++;
     // Create a JSON string
     let cardID = Number(newCardID);
-    recipeArray.push([twoDimentionalArrayHTML[cardID - 1][1], twoDimentionalArrayHTML[cardID - 1][2], twoDimentionalArrayHTML[cardID - 1][3], twoDimentionalArrayHTML[cardID - 1][4]]);
+    array.push([twoDimentionalArrayHTML[cardID - 1][1], twoDimentionalArrayHTML[cardID - 1][2], twoDimentionalArrayHTML[cardID - 1][3], twoDimentionalArrayHTML[cardID - 1][4]]);
+    console.log("two" + twoDimentionalArrayHTML[0][1]);
+    const tasksJson = JSON.stringify(array);
 
-    const tasksJson = JSON.stringify(recipeArray);
-
-    console.log(tasksJson);
+    console.log("task" + tasksJson);
     // Store the JSON string /
     localStorage.setItem("tasks", tasksJson);
 
     // Store the currentId in localStorage
     localStorage.setItem("currentID", ID);
 
+
 }
-const generateHtmlLocalStorage = (ID, recipeDetails) => {
+
+//Delete method 
+
+const deleteCard = (newCardID) => {
+    let cardID = Number(newCardID);
+    let [ID, recipeDetails] = load();
+    recipeDetails.splice([cardID - 1], 1);
+    const tasksJson = JSON.stringify(recipeDetails);
+
+    console.log(tasksJson);
+    // Store the JSON string /
+    localStorage.setItem("tasks", tasksJson);
+
+    // Store the currentId in localStorage
+    localStorage.setItem("currentID", --ID);
+    generateHtmlLocalStorage(recipeDetails);
+    console.log(recipeDetails);
+
+}
+
+
+
+const generateHtmlLocalStorage = (recipeDetails) => {
 
     let html = "";
+    let ID = 1;
     recipeDetails.map((param) => {
         html +=
             `<div class="row pt-3">
@@ -69,8 +98,8 @@ const generateHtmlLocalStorage = (ID, recipeDetails) => {
                     <div class="card  rounded-3 px-2 py-2 me-5 card-outer" style="max-width: 640px">
                         <div class="card rounded-3 bg-white shadow-lg  ps-0 card-inner"
                             style="max-width: 640px; max-height:400px;">
-                            <div class="row h-100">
-                                <div class="col-sm-4 col-4 d-flex justify-content-start h-100">
+                            <div class="row h-100" >
+                                <div class="col-sm-4 col-4 d-flex justify-content-start h-100" cardID="${ID}">
                                     <span class="close-button">
                                     <i class="fas fa-window-close fa-lg"></i>
                                     </span>                                    
@@ -98,6 +127,8 @@ const generateHtmlLocalStorage = (ID, recipeDetails) => {
                     </div>
                 </div>
             </div>`;
+        ID++;
     });
-    return html;
+
+    document.querySelector(".recipes").innerHTML = html;
 }
