@@ -1,11 +1,8 @@
-// JS file start here
-//Load Current Local storage ID
 let twoDimentionalArrayHTML = [], recipeArray = [];
 let ID;
-// Event Handler for search button
 
+// Event Handler for search form for Enter key
 document.querySelector(".search-form-textbox").addEventListener("keydown", (event) => {
-
     if (event.code === 'Enter') {
         console.log(event.key);
         event.preventDefault();
@@ -13,12 +10,12 @@ document.querySelector(".search-form-textbox").addEventListener("keydown", (even
     }
 });
 
+//Even Handler serch form for mouse
 document.querySelector(".search-button").addEventListener("click", () => {
     validation();
-
-
 });
 
+//Function for validating search input
 const validation = () => {
     let keyWord = document.querySelector(".search-form-textbox").value;
     if (keyWord === "" || !(keyWord.match(/^[A-Za-z ]+$/))) {
@@ -29,33 +26,28 @@ const validation = () => {
     }
 }
 
+// Function to get data from API
 const getReceipes = async (keyWord) => {
     let ingredient = keyWord;
     let htmlArray = [], ID = 0;
     let URL = `https://api.edamam.com/api/recipes/v2?type=public&q=${ingredient}&app_id=a267c238&app_key=b1f0e8d21ea4382b259a18dcb53006ff`;
     let result = await fetch(URL);
-    jsonResult = await result.json();   
+    jsonResult = await result.json();
 
-
-    //generate html
     let jsonResultHits = jsonResult.hits;
     for (let i = 0; i < jsonResultHits.length; i++) {
-
         let list = "";
         ID++;
         list = generateList(jsonResultHits[i].recipe.ingredients);
         let html = generateHtml(jsonResultHits[i], list, ID);
         htmlArray.push(html);
         twoDimentionalArrayHTML.push([ID, jsonResultHits[i].recipe.image, jsonResultHits[i].recipe.label, list, jsonResultHits[i].recipe.url]);
-        console.log(twoDimentionalArrayHTML);
-
     }
     display(htmlArray);
 }
 
-
+//Genrate HTML for serch results
 const generateHtml = (results, list, ID) => {
-
     let html = "";
     html +=
         `<div class="row pt-3">
@@ -90,18 +82,17 @@ const generateHtml = (results, list, ID) => {
                     </div>
                 </div>
             </div>`;
-
     return html;
-
 }
 
+// Display HTML on screen
 const display = (htmlArray) => {
     let html = htmlArray.join("\n");
-
     document.querySelector(".recipes").innerHTML = html;
 }
 
-const generateList = (result => {
+// Generate ingredient list
+const generateList = ((result) => {
     let html = "";
     result.map((para1) => {
         html += `<li>${para1.text}</li>`;

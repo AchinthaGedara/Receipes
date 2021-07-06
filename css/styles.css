@@ -27,8 +27,8 @@
     right: 0;
     color: rgb(100, 96, 96);
     opacity: 0.99;
-    
-    
+
+
 }
 
 .card-inner {
@@ -56,14 +56,14 @@
     overflow: scroll;
     height: 100px;
     padding-left: 30px;
-    
-    
+
+
 
 }
 
 .ingredients-list {
     overflow: scroll;
-    
+
 }
 
 ::-webkit-scrollbar {
@@ -94,9 +94,9 @@
     .ingredients-list {
 
         max-height: 40px;
-        
-        
-        
+
+
+
     }
 
     .view-recipe {
@@ -141,6 +141,11 @@
     max-height: 12px;
     padding-bottom: 0;
     position: absolute;
-    bottom:10;
+    bottom: 10;
 
+}
+
+.fa-download:active {
+    transform: scale(0.5);
+    
 }

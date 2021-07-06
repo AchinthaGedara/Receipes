@@ -1,5 +1,4 @@
 
-
 // Save data to local storage
 divTask.addEventListener("click", (event) => {
     let cardID;
@@ -9,44 +8,37 @@ divTask.addEventListener("click", (event) => {
         console.log(ID);
         save(cardID);
     }
-    //Delete a card
+    //Delete a recipe
     if (event.target.classList.contains("fa-window-close")) {
         cardID = event.target.parentElement.parentElement.getAttribute("cardID");
         deleteCard(cardID);
     }
-
 });
 
-//Load data from local storage upon request
+//Load data from local storage 
 document.querySelector(".fa-download").addEventListener("click", () => {
     let [ID, recipeDetails] = load();
     if (ID > 0) {
         generateHtmlLocalStorage(recipeDetails);
-
     }
-
 });
 
-
-
-//Loading values
+//Loading values from local storage
 const load = () => {
     let currentId = 0;
     if (localStorage.getItem("currentID")) {
         const recipes = localStorage.getItem("tasks");
         recipeArray = JSON.parse(recipes);
     }
+
     if (localStorage.getItem("currentID")) {
         currentId = localStorage.getItem("currentID");
         currentId = Number(currentId);
     }
-    else {
-        currentId = 0;
-    }
     return [currentId, recipeArray];
 }
 
-//save method start here
+//Save data to local storage
 const save = (newCardID) => {
     [ID, array] = load();
     ID++;
@@ -62,12 +54,9 @@ const save = (newCardID) => {
 
     // Store the currentId in localStorage
     localStorage.setItem("currentID", ID);
-
-
 }
 
-//Delete method 
-
+//Delete a recipe
 const deleteCard = (newCardID) => {
     let cardID = Number(newCardID);
     let [ID, recipeDetails] = load();
@@ -82,13 +71,10 @@ const deleteCard = (newCardID) => {
     localStorage.setItem("currentID", --ID);
     generateHtmlLocalStorage(recipeDetails);
     console.log(recipeDetails);
-
 }
 
-
-
+// Display HTMl on screen for saved data
 const generateHtmlLocalStorage = (recipeDetails) => {
-
     let html = "";
     let ID = 1;
     recipeDetails.map((param) => {
@@ -129,6 +115,5 @@ const generateHtmlLocalStorage = (recipeDetails) => {
             </div>`;
         ID++;
     });
-
     document.querySelector(".recipes").innerHTML = html;
 }
