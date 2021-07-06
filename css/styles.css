@@ -26,6 +26,8 @@
     z-index: 1;
     right: 0;
     color: rgb(100, 96, 96);
+    opacity: 0.99;
+    
     
 }
 
@@ -54,7 +56,7 @@
     overflow: scroll;
     height: 100px;
     padding-left: 30px;
-    add
+    
     
 
 }
