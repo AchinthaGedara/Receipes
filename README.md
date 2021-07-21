@@ -10,7 +10,8 @@ Operation.
 5) Click on close button on recipes to delete recipes.
 
 
-Following techologies have been used
+Following techologies have been used:
+
 JS, CSS , HTML, Json, Bootstrap
 
  https://achinthagedara.github.io/Recipes/
