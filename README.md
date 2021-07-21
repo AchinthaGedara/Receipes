@@ -2,7 +2,7 @@
 
 The website allows users to search recipes by keywords. Also, they can save it in the local storage for offline viewing. Website uses a API to obtain necessarry recipes from a third party vendor.
 
-Operation.
+Operation:
 1) Enter key phrase and search.
 2) Click on pink color save button to save.
 3) Click on view recipes to see full recipe.
@@ -10,7 +10,7 @@ Operation.
 5) Click on close button on recipes to delete recipes.
 
 
-Following techologies have been used:
+Technologies used:
 
 JS, CSS , HTML, Json, Bootstrap
 
